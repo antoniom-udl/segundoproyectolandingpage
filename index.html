@@ -8,18 +8,87 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* --- Fullscreen carousel + images --- */
-    html, body { height: 100%; margin: 0; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    /* Carrusel full-screen */
+    .welcome-carousel {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: block;
+      background: #000;
+    }
+
     .welcome-carousel,
     .welcome-carousel .carousel-inner,
     .welcome-carousel .carousel-item {
-      height: 100vh;
+      min-height: 100vh;
     }
+
+    @supports (height: 100svh) {
+      .welcome-carousel,
+      .welcome-carousel .carousel-inner,
+      .welcome-carousel .carousel-item {
+        min-height: 100svh;
+      }
+    }
+
+    /* Centrado y fondo difuminado */
+    .welcome-carousel .carousel-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .welcome-carousel .carousel-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: center/cover no-repeat;
+      filter: blur(20px) brightness(0.7);
+      transform: scale(1.1);
+      z-index: 0;
+    }
+
+    #welcomeCarousel .carousel-item:nth-child(1)::before {
+      background-image: url("imagenes/latte.png");
+    }
+    #welcomeCarousel .carousel-item:nth-child(2)::before {
+      background-image: url("imagenes/coldbrew.png");
+    }
+    #welcomeCarousel .carousel-item:nth-child(3)::before {
+      background-image: url("imagenes/espresso.png");
+    }
+
+    /* Imagen principal centrada y completa */
     .welcome-carousel .carousel-item img {
-      height: 100vh;
-      width: 100%;
-      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100vh;
+      object-fit: contain;
       display: block;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    @supports (height: 100svh) {
+      .welcome-carousel .carousel-item img {
+        max-height: 100svh;
+      }
     }
 
     /* Overlay central */
@@ -29,71 +98,82 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      pointer-events: none; /* que no interfiera con swipe del carousel */
-      z-index: 1075;
+      pointer-events: none;
+      z-index: 1100;
     }
+
     .welcome-box {
       pointer-events: auto;
-      background: rgba(6, 8, 6, 0.52); /* ligeramente más oscuro para contraste */
+      background: rgba(6, 8, 6, 0.52);
       color: #fff;
       padding: 2rem 2.4rem;
       border-radius: 12px;
       text-align: center;
       backdrop-filter: blur(6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.32);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.32);
       max-width: 900px;
       width: calc(100% - 3rem);
     }
-    .welcome-box h1 { font-size: clamp(1.6rem, 3.6vw, 2.6rem); margin-bottom: .35rem; }
-    .welcome-box p { margin-bottom: 1rem; opacity: .95; }
 
-    /* Top-right small control buttons */
+    .welcome-box h1 {
+      font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+      margin-bottom: 0.35rem;
+    }
+
+    .welcome-box p {
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    /* Botones superiores */
     .top-controls {
       position: fixed;
       right: 1rem;
       top: 1rem;
-      z-index: 1085;
+      z-index: 1110;
       display: flex;
-      gap: .5rem;
+      gap: 0.5rem;
     }
 
-    /* Make controls visible on dark background */
-    .top-controls .btn { opacity: .95; }
+    .top-controls .btn {
+      opacity: 0.95;
+    }
 
-    /* Carousel controls (prev/next) slightly bigger for full-screen */
+    /* Controles del carrusel */
     .welcome-carousel .carousel-control-prev-icon,
     .welcome-carousel .carousel-control-next-icon {
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
       width: 44px;
       height: 44px;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
     }
 
-    /* Hide the footer on the welcome page so the image truly fills the screen */
-    footer { display: none !important; }
+    footer {
+      display: none !important;
+    }
 
-    /* Mobile tweak */
     @media (max-width: 575px) {
-      .welcome-box { padding: 1.1rem; border-radius: 10px; }
-      .top-controls { right: .6rem; top: .6rem; }
-      .welcome-carousel .carousel-control-prev-icon,
-      .welcome-carousel .carousel-control-next-icon { width:36px; height:36px; }
-    }
+      .welcome-box {
+        padding: 1rem;
+        border-radius: 10px;
+      }
 
-    /* Respect reduced motion if needed */
-    @media (prefers-reduced-motion: reduce) {
-      .welcome-carousel { scroll-behavior: auto; }
+      .welcome-carousel .carousel-control-prev-icon,
+      .welcome-carousel .carousel-control-next-icon {
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
-<body class="bg-dark">
 
-  <!-- Top-right non-functional buttons -->
+<body class="bg-dark">
+  <!-- Botones superiores -->
   <div class="top-controls">
-    <button class="btn btn-outline-light btn-sm" type="button" aria-label="Iniciar sesión (no funcional)">Iniciar sesión</button>
-    <button class="btn btn-light btn-sm" type="button" aria-label="Crear cuenta (no funcional)">Crear cuenta</button>
+    <button class="btn btn-outline-light btn-sm" type="button">Iniciar sesión</button>
+    <button class="btn btn-light btn-sm" type="button">Crear cuenta</button>
   </div>
 
-  <!-- Carrusel full-screen -->
+  <!-- Carrusel principal -->
   <div id="welcomeCarousel" class="carousel slide carousel-fade welcome-carousel" data-bs-ride="carousel" data-bs-interval="6000">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -105,23 +185,21 @@
       <div class="carousel-item">
         <img src="imagenes/espresso.png" alt="Entre Paréntesis — espresso" loading="lazy">
       </div>
-      <!-- si tienes más imágenes, añade más carousel-item -->
     </div>
 
-    <!-- Overlay central con mensaje e ingresar -->
+    <!-- Overlay -->
     <div class="welcome-overlay">
-      <div class="welcome-box reveal">
+      <div class="welcome-box">
         <h1 class="fw-bold">Bienvenido a <span class="bracket">Entre Paréntesis</span></h1>
         <p class="lead">Un espacio minimalista, cálido y moderno para tu (merecido) momento.</p>
         <div class="d-flex justify-content-center gap-3">
-          <!-- Ingresar lleva a la página principal "inicio.html" -->
           <a href="inicio.html" class="btn btn-lg btn-primary">Ingresar</a>
           <a href="inicio.html" class="btn btn-outline-light btn-lg">Explorar</a>
         </div>
       </div>
     </div>
 
-    <!-- Controles (prev/next) -->
+    <!-- Controles -->
     <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Anterior</span>
@@ -132,12 +210,15 @@
     </button>
   </div>
 
-  <!-- Hidden small footer (kept in DOM but hidden) -->
+  <!-- Footer opcional -->
   <footer class="position-fixed bottom-0 start-0 w-100 text-center pb-3" style="z-index:1083">
     <small class="text-white-50">© <span id="year"></span> Entre Paréntesis</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/animacion.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
