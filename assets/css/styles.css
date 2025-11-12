@@ -1,0 +1,315 @@
+/* ==============================
+   PALETA DE COLORES
+   ============================== */
+:root{
+  --verde-oscuro:#1B4332;   /* navbar, footer, botones */
+  --verde-medio:#2D6A4F;    /* hovers, acentos */
+  --verde-claro:#B7E4C7;    /* fondos suaves */
+  --verde-salvia:#D8F3DC;   /* secciones claras secundarias */
+  --negro:#2B2B2B;
+  --blanco:#FFFFFF;
+  --dorado:#C5A880;         /* detalles premium / paréntesis */
+  --fondo-beige:#E8DFC6;    /* nuevo color de fondo general */
+}
+
+/* ==============================
+   CONFIGURACIÓN GENERAL
+   ============================== */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Poppins", system-ui, -apple-system, sans-serif;
+  color:var(--negro);
+  background-color:var(--fondo-beige); /* Fondo beige general */
+  margin:0;
+  padding:0;
+}
+
+/* ==============================
+   NAVBAR Y FOOTER
+   ============================== */
+.navbar{
+  background:var(--verde-oscuro);
+}
+.navbar .nav-link,
+.navbar-brand{
+  color:var(--blanco) !important;
+}
+.navbar .nav-link.active{
+  border-bottom:2px solid var(--dorado);
+}
+
+footer{
+  background:var(--verde-oscuro);
+  color:var(--blanco);
+}
+
+/* ==============================
+   SECCIONES Y FONDOS
+   ============================== */
+.section-soft{
+  background:var(--fondo-beige); /* secciones suaves también beige */
+}
+
+/* ==============================
+   HERO / CAROUSEL
+   ============================== */
+.carousel .carousel-item img{
+  max-height:70vh;
+  object-fit:cover;
+}
+.hero-overlay{
+  background:rgba(27,67,50,.45);
+  backdrop-filter:blur(1px);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:.75rem;
+}
+
+/* ==============================
+   CARDS
+   ============================== */
+.card{
+  border:0;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  background-color:var(--blanco);
+}
+.card-title{
+  color:var(--verde-oscuro);
+}
+
+/* ==============================
+   BOTONES
+   ============================== */
+.btn-primary{
+  background:var(--verde-oscuro);
+  border-color:var(--verde-oscuro);
+}
+.btn-primary:hover{
+  background:var(--verde-medio);
+  border-color:var(--verde-medio);
+}
+
+/* ==============================
+   FORMULARIOS
+   ============================== */
+.form-control:focus{
+  border-color:var(--verde-medio);
+  box-shadow:0 0 0 .25rem rgba(45,106,79,.25);
+}
+form, .modal-content, .bg-white{
+  background-color:var(--blanco);
+}
+
+/* ==============================
+   BARRAS DE PROGRESO
+   ============================== */
+.progress{
+  background:#e8f5ee;
+  height:10px;
+  border-radius:10px;
+}
+.progress-bar{
+  background:var(--verde-medio);
+}
+
+/* ==============================
+   DETALLE VISUAL “( … )”
+   ============================== */
+.bracket{
+  position:relative;
+  padding:.1rem .4rem;
+}
+.bracket::before,
+.bracket::after{
+  position:absolute;
+  color:var(--dorado);
+  font-weight:700;
+  top:-.2rem;
+}
+.bracket::before{
+  content:"(";
+  left:-.6rem;
+}
+.bracket::after{
+  content:")";
+  right:-.6rem;
+}
+
+/* ==============================
+   UTILIDADES Y CLASES EXTRAS
+   ============================== */
+.text-green{
+  color:var(--verde-oscuro)!important;
+}
+.bg-green-soft{
+  background:var(--verde-claro)!important;
+}
+.object-fit-cover{
+  object-fit:cover;
+}
+
+/* Altura y scroll del panel de contenido del menú (scrollspy) */
+.scrollspy-panel{
+  height: 75vh;          /* ocupa buena parte de la pantalla */
+  overflow: auto;        /* hace scroll solo en el panel derecho */
+  position: relative;
+}
+@media (max-width: 991.98px){
+  .scrollspy-panel{ height: auto; }
+}
+
+/* Animación tipo slide vertical */
+#opinionesImgs .carousel-item {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#opinionesImgs .carousel-item.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+/* Nav lateral en verde solo cuando está activo */
+#navbar-example3 .nav-link{
+  color: var(--verde-oscuro);
+  background: transparent;             /* ← no lo pintes por defecto */
+  border-radius: .75rem;
+}
+#navbar-example3 .nav-link:hover{
+  background: rgba(27,67,50,.08);
+}
+#navbar-example3 .nav-link.active{
+  background-color: var(--verde-oscuro) !important;
+  color:#fff !important;
+  box-shadow:0 6px 14px rgba(27,67,50,.18);
+}
+
+/* Barra verde de título, SOLO dentro del panel derecho */
+.scrollspy-panel .section-title{
+  background: var(--verde-oscuro);
+  color:#fff;
+  padding:.85rem 1rem;
+  border-radius:.9rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.scrollspy-panel .section-title small{
+  color: rgba(255,255,255,.85) !important;
+}
+
+
+/* Igualar alturas entre nav izquierdo y panel derecho (con scroll interno) */
+@media (min-width: 992px){
+  :root{
+    --offset-top: 100px; /* ajusta según el alto real del navbar */
+  }
+
+  .menu-eq{ align-items: stretch; }
+  .menu-eq > [class*="col-lg-"]{ display: flex; }
+
+  .aside-card{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--offset-top));
+  }
+
+  /* NAV lateral: mismo alto y scroll interno */
+  #navbar-example3{
+    flex: 1 1 auto;
+    height: calc(100vh - var(--offset-top));
+    overflow-y: auto;
+    border-right: 1px solid rgba(0,0,0,.06);
+    padding-right: .5rem;
+  }
+
+  /* PANEL derecho: mismo alto y scroll interno */
+  .scrollspy-panel{
+    flex: 1 1 auto;
+    height: calc(100vh - var(--offset-top));
+    overflow-y: auto;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Estilo de enlace activo (verde) */
+#navbar-example3 .nav-link{
+  color: var(--verde-oscuro);
+  border-radius: .75rem;
+}
+#navbar-example3 .nav-link:hover{
+  background: rgba(27,67,50,.08);
+}
+#navbar-example3 .nav-link.active{
+  background-color: var(--verde-oscuro) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 14px rgba(27,67,50,.18);
+}
+
+
+/* ------------------ Micro-interactions ------------------ */
+
+
+.card-img-top, .img-fluid {
+transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.card-img-top:hover, .img-fluid:hover {
+transform: scale(1.03);
+}
+
+
+/* ---------- Reveal on scroll (initial state) ---------- */
+.reveal {
+opacity: 0;
+transform: translateY(18px);
+transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+
+/* ---------- Progress bars visual polish ---------- */
+.progress { background-color: rgba(0,0,0,0.06); height: 10px; border-radius: 8px; overflow: hidden; }
+.progress .progress-bar { transition: width 900ms cubic-bezier(.2,.9,.3,1); height:100%; }
+
+
+/* ---------- Hero caption animation (carousel captions) ---------- */
+.carousel-caption .hero-overlay { opacity: 0; transform: translateY(6px); transition: opacity .45s ease, transform .45s ease; }
+.carousel-item.active .carousel-caption .hero-overlay { opacity:1; transform: translateY(0); }
+
+
+/* ---------- Bracket floating accent ---------- */
+.bracket { display:inline-block; animation: floaty 5s ease-in-out infinite; }
+@keyframes floaty { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+
+
+/* ---------- Focus styles (accesibilidad + visible) ---------- */
+:focus { outline: none; }
+a:focus, button:focus, .nav-link:focus, .card:focus {
+outline: 3px solid rgba(34,160,80,0.18);
+outline-offset: 3px; border-radius:6px;
+}
+
+
+/* ---------- Toast subtle entrance ---------- */
+.toast-delayed { opacity: 0; transform: translateY(6px); transition: opacity .45s ease, transform .45s ease; }
+.toast-delayed.show { opacity:1; transform: translateY(0); }
+
+
+/* ---------- Small responsive tweaks ---------- */
+@media (max-width: 767px) {
+.card-img-top, .img-fluid { transform-origin: center center; }
+}
+
+
+/* ---------- Respect user preference for reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+* { animation: none !important; transition: none !important; }
+}
+
+
+/* ---------- Optional small style for scrollspy panel to hint movement ---------- */
+.scrollspy-panel { will-change: transform; }
+
+
+/* End of additions */

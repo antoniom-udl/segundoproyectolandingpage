@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú — Entre Paréntesis</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="inicio.html">
+        <img src="imagenes/EntreParentesis_Logo-removebg-preview.png" height="28" alt="logo"> Entre Paréntesis
+      </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="productos.html">Menú</a></li>
+          <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="py-5 section-soft">
+    <div class="container text-center">
+      <h1 class="fw-bold text-green">Nuestro Menú</h1>
+      <p class="mb-0">Explora por secciones y descubre cada bebida o alimento.</p>
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <main class="py-5">
+    <div class="container">
+      <!-- Fila modificada para igualar alturas -->
+      <div class="row g-4 menu-eq">
+        <!-- NAV LATERAL (envuelto para estirar la altura) -->
+        <div class="col-12 col-lg-4 d-lg-flex">
+          <div class="aside-card w-100">
+            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-lg-4 border-end">
+              <nav class="nav nav-pills flex-column">
+                <!-- Calientes -->
+                <a class="nav-link" href="#calientes">Bebidas Calientes</a>
+                <nav class="nav nav-pills flex-column">
+                  <a class="nav-link ms-3 my-1" href="#calientes-espresso">Espresso</a>
+                  <a class="nav-link ms-3 my-1" href="#calientes-latte">Latte</a>
+                  <a class="nav-link ms-3 my-1" href="#calientes-americano">Americano</a>
+                </nav>
+
+                <!-- Frías -->
+                <a class="nav-link mt-2" href="#frias">Bebidas Frías</a>
+                <nav class="nav nav-pills flex-column">
+                  <a class="nav-link ms-3 my-1" href="#frias-coldbrew">Cold Brew</a>
+                  <a class="nav-link ms-3 my-1" href="#frias-tonic">Espresso Tonic</a>
+                  <a class="nav-link ms-3 my-1" href="#frias-frappe">Frappé</a>
+                </nav>
+
+                <!-- Repostería -->
+                <a class="nav-link mt-2" href="#reposteria">Repostería</a>
+                <nav class="nav nav-pills flex-column">
+                  <a class="nav-link ms-3 my-1" href="#reposteria-brownie">Brownie</a>
+                  <a class="nav-link ms-3 my-1" href="#reposteria-roll">Cinnamon Roll</a>
+                  <a class="nav-link ms-3 my-1" href="#reposteria-cheesecake">Cheesecake</a>
+                </nav>
+
+                <!-- Temporada -->
+                <a class="nav-link mt-2" href="#temporada">Temporada</a>
+                <nav class="nav nav-pills flex-column">
+                  <a class="nav-link ms-3 my-1" href="#temporada-colombia">Colombia Washed</a>
+                  <a class="nav-link ms-3 my-1" href="#temporada-kenya">Kenya AA</a>
+                  <a class="nav-link ms-3 my-1" href="#temporada-etiopia">Etiopía Natural</a>
+                </nav>
+              </nav>
+            </nav>
+          </div>
+        </div>
+
+        <!-- PANEL DE CONTENIDO -->
+        <div class="col-12 col-lg-8 d-lg-flex">
+          <div
+            data-bs-spy="scroll"
+            data-bs-target="#navbar-example3"
+            data-bs-smooth-scroll="true"
+            class="scrollspy-panel border rounded-4 bg-white p-3 p-md-4 flex-grow-1"
+            tabindex="0">
+
+            <!-- ===== Calientes ===== -->
+            <div id="calientes" class="mb-4">
+              <div class="section-title">
+                <h4 class="mb-0">Bebidas Calientes</h4>
+                <small>Clásicos para tu (pausa) cálida.</small>
+              </div>
+            </div>
+
+            <!-- Espresso -->
+            <div id="calientes-espresso" class="mb-5">
+              <h5 class="fw-semibold">Espresso</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/espresso.png" alt="Espresso" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Extracción concentrada con crema avellana. Intenso, directo y perfecto para iniciar el día.</p>
+                  <span class="badge text-bg-success">Clásico</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Latte -->
+            <div id="calientes-latte" class="mb-5">
+              <h5 class="fw-semibold">Latte</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/latte.png" alt="Latte" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Leche microespumada y espresso en equilibrio. Textura sedosa y sabor amable.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Americano -->
+            <div id="calientes-americano" class="mb-5">
+              <h5 class="fw-semibold">Americano</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/americano.png" alt="Americano" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Espresso rebajado con agua caliente. Perfil más ligero, ideal para leer o trabajar.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Frías ===== -->
+            <div id="frias" class="mb-4">
+              <div class="section-title">
+                <h4 class="mb-0">Bebidas Frías</h4>
+                <small>Refrescantes y limpias en sabor.</small>
+              </div>
+            </div>
+
+            <!-- Cold Brew -->
+            <div id="frias-coldbrew" class="mb-5">
+              <h5 class="fw-semibold">Cold Brew</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/coldbrew.png" alt="Cold Brew" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Infusión en frío 12–18 h. Dulzor natural, baja acidez y final largo.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Espresso Tonic -->
+            <div id="frias-tonic" class="mb-5">
+              <h5 class="fw-semibold">Espresso Tonic</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/espressotonic.png" alt="Espresso Tonic" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Espresso sobre tónica con hielo. Cítrico, burbujeante y sorprendente.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Frappé -->
+            <div id="frias-frappe" class="mb-5">
+              <h5 class="fw-semibold">Frappé</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/frappe.png" alt="Frappé" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Cremoso y frío, con notas de cacao y vainilla. Tu pausa dulce.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Repostería ===== -->
+            <div id="reposteria" class="mb-4">
+              <div class="section-title">
+                <h4 class="mb-0">Repostería</h4>
+                <small>Hecha en casa, cada mañana.</small>
+              </div>
+            </div>
+
+            <!-- Brownie -->
+            <div id="reposteria-brownie" class="mb-5">
+              <h5 class="fw-semibold">Brownie</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/brownie.png" alt="Brownie" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Cacao 70 %, textura húmeda y toques de nuez. Marida con espresso.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cinnamon Roll -->
+            <div id="reposteria-roll" class="mb-5">
+              <h5 class="fw-semibold">Cinnamon Roll</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/cinnamonroll.png" alt="Cinnamon Roll" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Masa suave, especias equilibradas y glaseado fino. Perfecto con latte.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cheesecake -->
+            <div id="reposteria-cheesecake" class="mb-5">
+              <h5 class="fw-semibold">Cheesecake</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/cheesecake.png" alt="Cheesecake" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Cremoso y con base crujiente. Toque de limón para balance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Temporada ===== -->
+            <div id="temporada" class="mb-4">
+              <div class="section-title">
+                <h4 class="mb-0">Temporada</h4>
+                <small>Orígenes destacados (edición limitada).</small>
+              </div>
+            </div>
+
+            <!-- Colombia -->
+            <div id="temporada-colombia" class="mb-5">
+              <h5 class="fw-semibold">Colombia Washed <span class="badge text-bg-success">Nuevo</span></h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/colombiawashed.png" alt="Colombia Washed" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Cítrico suave, caramelo y final limpio.</p>
+                  <div class="small mb-1">Perfil de sabor</div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:60%"></div></div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:40%"></div></div>
+                  <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kenya -->
+            <div id="temporada-kenya" class="mb-5">
+              <h5 class="fw-semibold">Kenya AA</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/kenyaaa.png" alt="Kenya AA" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Frutos rojos, acidez viva y final jugoso.</p>
+                  <div class="small mb-1">Perfil de sabor</div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:80%"></div></div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:50%"></div></div>
+                  <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etiopía -->
+            <div id="temporada-etiopia" class="mb-2">
+              <h5 class="fw-semibold">Etiopía Natural</h5>
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <img src="imagenes/espresso.png" alt="Etiopía Natural" class="img-fluid rounded-3 object-fit-cover">
+                </div>
+                <div class="col-md-7">
+                  <p>Aroma floral, frutos maduros y cuerpo medio.</p>
+                  <div class="small mb-1">Perfil de sabor</div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:45%"></div></div>
+                  <div class="progress mb-2"><div class="progress-bar" style="width:60%"></div></div>
+                  <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /scrollspy-panel -->
+        </div><!-- /col-8 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </main>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <small>© <span id="year"></span> Entre Paréntesis</small>
+      <a class="text-white text-decoration-none" href="contacto.html"><i class="bi bi-geo-alt me-2"></i>Visítanos</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/animacion.js"></script>
+</body>
+</html>
